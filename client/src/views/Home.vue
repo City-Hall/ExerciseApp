@@ -2,7 +2,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" id="home-img">
-    <h1> Hi this is new awesome code</h1>
+    <h1> Hi this is changed to test heroku</h1>
     
     
   </div>

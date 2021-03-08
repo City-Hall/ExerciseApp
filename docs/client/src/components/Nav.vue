@@ -3,7 +3,7 @@
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             <i class="fab fa-instagram fa-3x  fa-fw fa-pulse"></i>
-            Ista-Gratitude
+            Exersise App
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': isActive }" @click.prevent="isActive = !isActive" >

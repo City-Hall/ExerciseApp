@@ -10,7 +10,7 @@
             </a>
         </div>
         <div v-else>
-            Hello Moshe Plotkin
+            Hello Andrew
             (<a @click="logout">
                 Log out
             </a>)
@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         login(){
-            this.Session.user = { name: "Moshe" }
+            this.Session.user = { name: "Andrew" }
         },
         logout(){
             this.Session.user = null

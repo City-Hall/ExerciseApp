@@ -4,7 +4,8 @@ import Home from '../views/Home.vue';
 import Documentation from '@/views/Documentation';
 import MyWall from '@/views/MyWall';
 import MyFeed from '@/views/MyFeed';
-import Login from '@/views/Login'
+import Login from '@/views/Login';
+import Shop from '@/views/Shop';
 import Session from '../models/Session';
 
 Vue.use(VueRouter)
@@ -15,6 +16,7 @@ const routes = [
   { path: '/login', name: 'Login', component: Login },
   { path: '/mywall', name: 'MyWall', component: MyWall },
   { path: '/feed', name: 'MyFeed', component: MyFeed },
+  { path: '/Shop', name: 'Shop', component: Shop },
   {
     path: '/about',
     name: 'About',
@@ -22,7 +24,7 @@ const routes = [
   },
   {
     path: '/shop',
-    name: 'shop',
+    name: 'Shop',
     component: () => import(/* webpackChunkName: "secondary" */ '../views/Shop.vue')
   }
 ]

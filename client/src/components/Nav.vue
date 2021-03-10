@@ -2,7 +2,7 @@
         <nav class="navbar container is-primary" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
-            <i class="fab fa-instagram fa-3x  fa-fw fa-pulse"></i>
+            <i class="fas fa-dumbbell fa-3x"></i>
             Exersise App
           </a>
       
@@ -30,11 +30,13 @@
                   About
                 </router-link>
 
-                <a class="navbar-item" href="jobs.html">
-                  Jobs
+                <a class="navbar-item">
+                  <router-link to="/Shop">
+                  Shop
+                  </router-link>
                 </a>
                 <a class="navbar-item">
-                  Contact
+                  About
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">

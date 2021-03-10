@@ -11,14 +11,12 @@
                 
                   <div class="card-content">
 
-                      <div class="media" v-for="(x, i) in inventory" :key="i">
+                      <div class="media" v-for="(x, i) in inventory" :key= i>
                         <div class="media-left">
                           <figure class="image is-48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                            <img src= 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' alt="Placeholder image">
                           </figure>
                         </div>
-
-
                         <div class="media-content">
                         <button class="button is-small is-primary is-pulled-right" @click.prevent="add(i)">
                           Add to Cart
@@ -68,11 +66,10 @@
 export default {
           data: () => ({
             inventory: [
-                { name: 'Shovel', price: 3.99 },
-                { name: 'Sled', price: 13.99 },
-                { name: 'Bag of Salt', price: 9.50 },
-                { name: 'Snow Blower', price: 399 },
-                { name: 'Skis', price: 83.99 },
+                { name: 'Dumbbell', price: 3.99, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg'},
+                { name: 'Exersise Mat', price: 10.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
+                { name: 'Gym Membership', price: 50.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
+                { name: 'bike', price: 100.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
             ],
             cart: []
           }),

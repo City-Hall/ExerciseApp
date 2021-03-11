@@ -69,7 +69,7 @@ export default {
                 { name: 'Dumbbell', price: 3.99, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg'},
                 { name: 'Exersise Mat', price: 10.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
                 { name: 'Gym Membership', price: 50.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
-                { name: 'bike', price: 100.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/71Z1Ozj%2BM0L._AC_SL1500_.jpg' },
+                { name: 'bike', price: 100.00, pic: 'https://images-na.ssl-images-amazon.com/images/I/81ZaAhrPucL._AC_SL1500_.jpg' },
             ],
             cart: []
           }),

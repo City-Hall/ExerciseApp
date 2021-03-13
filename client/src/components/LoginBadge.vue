@@ -2,15 +2,15 @@
     <div>
 
         <div class="buttons" v-if="!Session.user">
-            <a class="button is-primary">
-                <strong>Sign up</strong>
-            </a>
-            <a class="button is-light" @click="login">
-                Log in
-            </a>
+            <router-link to="/SignUp" class="button is-light">
+                Sign Up
+                </router-link>
+            <router-link to="/LogIn" class="button is-light">
+                Log In
+                </router-link>
         </div>
         <div v-else>
-            Hello Andrew
+            Hello {{this.Session.user.name}}
             (<a @click="logout">
                 Log out
             </a>)
@@ -28,11 +28,12 @@ export default {
     },
     methods: {
         login(){
-            this.Session.user = { name: "Andrew" }
+            //this is what the bar needs to feed into
+            this.Session.user = { name: "Andrew", handle: "@Andrew" }
         },
         logout(){
             this.Session.user = null
-        }
+        },
     }
 }
 </script>

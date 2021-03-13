@@ -6,6 +6,7 @@ import MyWall from '@/views/MyWall';
 import MyFeed from '@/views/MyFeed';
 import Login from '@/views/Login';
 import Shop from '@/views/Shop';
+import SignUp from '@/views/SignUp';
 import Session from '../models/Session';
 
 Vue.use(VueRouter)
@@ -17,6 +18,7 @@ const routes = [
   { path: '/mywall', name: 'MyWall', component: MyWall },
   { path: '/feed', name: 'MyFeed', component: MyFeed },
   { path: '/Shop', name: 'Shop', component: Shop },
+  { path: '/signUp', name: 'SignUp', component: SignUp },
   {
     path: '/about',
     name: 'About',

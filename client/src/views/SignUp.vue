@@ -32,8 +32,8 @@
         </div>
         <div class="field">
         <p class="control">
-            <button class="button is-success"  @click="LogInCred(name, handle, pass)">
-            Log In
+            <button class="button is-success"  @click="SignUp(name, handle, pass)">
+            Sign Up
             </button>
         </p>
         </div>
@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { LogInCred } from "../models/Session";
+import { SignUp } from "../models/Session";
 export default {
     data: () => ({
                 name: '',
@@ -49,8 +49,23 @@ export default {
                 pass: '',
           }),
     methods: {
-        LogInCred(name, handle, pass){
-            LogInCred(name, handle, pass);
+        SignUp(name, handle, pass){
+            SignUp(name, handle, pass);
+        }
+    }
+}
+</script>
+<script>
+import { LogIn } from "../models/Session";
+export default {
+    data: () => ({
+                name: '',
+                handle: '',
+                pass: '',
+          }),
+    methods: {
+        LogIn(name, handle, pass){
+            LogIn(name, handle, pass);
         }
     }
 }

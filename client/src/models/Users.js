@@ -20,7 +20,13 @@ export function GetUsers(){
 }
 
 export function GetUser(id){
-    return users.filter( x=> x.user.handle == id );
+    return users.filter( x=> x.handle == id )[0];
+}
+
+export function AddUserFriend(id){
+    var y = users.filter( x=> x.handle == id )[0].name
+    Session.user.friends.push({name: y, handle: id});
+    GetUser(Session.user.handle).friends.push({name: y, handle: id});
 }
 
 export function GetFriends(id){
@@ -28,7 +34,7 @@ export function GetFriends(id){
 }
 
 export function MakeAccount(name, handle, pass, friends){
-    users.push({name: name, handle: handle, pass: pass, friends: []});
+    users.push({name: name, handle: handle, pass: pass, friends: friends});
 }
 
 export function GetUserCred(name, pass){
@@ -38,6 +44,6 @@ export function GetUserCred(name, pass){
     }
     else
     {
-        Session.user = { name: name, handle: "temp", pass: pass }
+        Session.user = users.filter( x=> x.name == name && x.pass == pass)[0];
     }
 }

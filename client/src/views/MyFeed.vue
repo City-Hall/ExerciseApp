@@ -31,6 +31,7 @@ import Vue from "vue";
 import ContentCard from "../components/ContentCard";
 import ContentCreation from '../components/ContentCreation.vue';
 import { GetMyFeed } from "../models/Posts";
+//import { addPost } from "../models/Posts";
 export default Vue.extend({
     data: ()=> ({
         newPost: {
@@ -39,7 +40,7 @@ export default Vue.extend({
         posts: []
     }),
     mounted() {
-        this.posts = GetMyFeed();
+        this.posts = GetMyFeed(0);
     },
     components: {
         ContentCard,
@@ -47,6 +48,7 @@ export default Vue.extend({
     },
     methods: {
         addPost(){
+            //addPost(this.newPost);
             this.posts.unshift(this.newPost);
             this.newPost = { user: {} }
         },

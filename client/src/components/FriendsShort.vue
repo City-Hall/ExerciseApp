@@ -8,7 +8,10 @@
         </p>
         <div class="field">
         <p class="control">
-            <button class="button is-success is-centered">
+            <button class="button is-success is-centered" @click="Search(handle)">
+            Search
+            </button>
+            <button class="button is-success is-centered" @click="AddUserFriend(handle)">
             Add Friend
             </button>
         </p>
@@ -27,22 +30,35 @@
             </span>
             {{x.name}}
         </a>
+        <a class="panel-block" v-for="(x, i) in results" :key= i>
+            <span class="panel-icon">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            </span>
+            {{x.name}}
+        </a>
         </article>
 </template>
 
 <script>
 import { GetUser } from "../models/Users";
+import { AddUserFriend } from "../models/Users";
 export default {
     data: () => ({
                 name: '',
                 handle: '',
                 friends: [
-                    {name: 'Andrew', handle: '@Andrew'}
+                ],
+                results: [
                 ],
           }),
     methods: {
-        GetUser(handle){
-            GetUser(handle);
+        Search(handle){
+            this.results.push({name: GetUser(handle).name, handle: GetUser(handle).handle});
+        },
+        AddUserFriend(handle){
+            AddUserFriend(handle);
+            this.friends.push({name: GetUser(handle).name, handle: GetUser(handle).handle});
+            this.results.pop();
         }
     }
 }

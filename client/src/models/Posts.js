@@ -7,7 +7,7 @@ const posts = [
         time: Date(),
         user: {
             name: "John Smith",
-            handle: "@johnsmith",
+            handle: "temp",
             pic: "https://bulma.io/images/placeholders/96x96.png"
         }
     },
@@ -36,13 +36,27 @@ const posts = [
 ];
 
 export function GetMyPosts(){
-    return GetPostsForUser(Session.user.handle);
+    return posts;
 }
 
 export function GetPostsForUser(id){
     return posts.filter( x=> x.user.handle == id );
 }
 
-export function GetMyFeed(){
-    return posts;
+export function addPost(post){
+    posts.push({ 
+        src: post.src,
+        alt: "Placeholder image",
+        caption: post.caption,
+        time: Date(),
+        user: {
+            name: post.user.name,
+            handle: post.user.handle,
+            pic: post.user.pic,
+        }
+    });
+}
+
+export function GetMyFeed(i){
+  return GetPostsForUser(Session.user.friends[i].handle);
 }

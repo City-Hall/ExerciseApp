@@ -9,7 +9,7 @@ export function LogIn(name, handle, pass){
 }
 
 export function SignUp(name, handle, pass){
-    Session.user = { name: name, handle: handle, pass: pass }
+    Session.user = { name: name, handle: handle, pass: pass, friends: [] }
 }
 
 export function Logout(){
@@ -19,5 +19,6 @@ export function Logout(){
 
 import { GetUserCred } from "../models/Users";
 export function LogInCred(name, pass){
+
     GetUserCred(name, pass)
 }

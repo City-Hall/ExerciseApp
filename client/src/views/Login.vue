@@ -1,19 +1,8 @@
 <template>
-    <form @submit.prevent="TheOnlyWayICouldGetThisToWorkWasByPuttingInNonesence">
+    <form @submit.prevent="TheOnlyWayICouldGetThisToWorkWasWithAnErrorPleaseIgnoreIt">
         <div class="field">
         <p class="control has-icons-left has-icons-right">
             <input class="input" type="text" placeholder="Name" v-model= "name">
-            <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-            </span>
-            <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-            </span>
-        </p>
-        </div>
-        <div class="field">
-        <p class="control has-icons-left has-icons-right">
-            <input class="input" type="text" placeholder="Handle"  v-model= "handle">
             <span class="icon is-small is-left">
             <i class="fas fa-user"></i>
             </span>
@@ -32,7 +21,7 @@
         </div>
         <div class="field">
         <p class="control">
-            <button class="button is-success"  @click="LogInCred(name, handle, pass)">
+            <button class="button is-success" @click="LogInCred(name, pass)">
             Log In
             </button>
         </p>
@@ -45,12 +34,11 @@ import { LogInCred } from "../models/Session";
 export default {
     data: () => ({
                 name: '',
-                handle: '',
                 pass: '',
           }),
     methods: {
-        LogInCred(name, handle, pass){
-            LogInCred(name, handle, pass);
+        LogInCred(name, pass){
+            LogInCred(name, pass);
         }
     }
 }

@@ -4,13 +4,13 @@ const users = [
         name: "Andrew",
         handle: "@Andrew",
         pass: "pass",
-        freinds: [],
+        friends: [],
     },
     {
         name: "NullUser",
         handle: "@NullUser",
         pass: "NullUser",
-        freinds: [],
+        friends: [],
     },
 ];
 
@@ -27,6 +27,10 @@ export function GetFriends(id){
     return users.filter(Session.user.freinds.includes(id));
 }
 
+export function MakeAccount(name, handle, pass, friends){
+    users.push({name: name, handle: handle, pass: pass, friends: []});
+}
+
 export function GetUserCred(name, pass){
     if (!users.filter( x=> x.name == name && x.pass == pass).length)
     {
@@ -34,6 +38,6 @@ export function GetUserCred(name, pass){
     }
     else
     {
-        return users.filter( x=> x.name == name && x.pass == pass);
+        Session.user = { name: name, handle: "temp", pass: pass }
     }
 }

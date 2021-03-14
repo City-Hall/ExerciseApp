@@ -27,10 +27,6 @@ export default {
         }
     },
     methods: {
-        login(){
-            //this is what the bar needs to feed into
-            this.Session.user = { name: "Andrew", handle: "@Andrew" }
-        },
         logout(){
             this.Session.user = null
         },

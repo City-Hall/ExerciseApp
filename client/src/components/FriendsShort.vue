@@ -5,48 +5,46 @@
         </p>
         <p class="panel-tabs">
             <a class="is-active">All</a>
-            <a>Public</a>
-            <a>Private</a>
-            <a>Sources</a>
-            <a>Forks</a>
         </p>
+        <div class="field">
+        <p class="control">
+            <button class="button is-success is-centered">
+            Add Friend
+            </button>
+        </p>
+        </div>
         <div class="panel-block">
             <p class="control has-icons-left">
-            <input class="input is-primary" type="text" placeholder="Search">
+            <input class="input is-primary" type="text" placeholder="Handle" v-model="handle">
             <span class="icon is-left">
                 <i class="fas fa-search" aria-hidden="true"></i>
             </span>
             </p>
         </div>
-        <a class="panel-block is-active">
+        <a class="panel-block is-active" v-for="(x, i) in friends" :key= i>
             <span class="panel-icon">
             <i class="fas fa-book" aria-hidden="true"></i>
             </span>
-            bulma
-        </a>
-        <a class="panel-block">
-            <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-            </span>
-            marksheet
-        </a>
-        <a class="panel-block">
-            <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-            </span>
-            minireset.css
-        </a>
-        <a class="panel-block">
-            <span class="panel-icon">
-            <i class="fas fa-book" aria-hidden="true"></i>
-            </span>
-            jgthms.github.io
+            {{x.name}}
         </a>
         </article>
 </template>
 
 <script>
+import { GetUser } from "../models/Users";
 export default {
+    data: () => ({
+                name: '',
+                handle: '',
+                friends: [
+                    {name: 'Andrew', handle: '@Andrew'}
+                ],
+          }),
+    methods: {
+        GetUser(handle){
+            GetUser(handle);
+        }
+    }
 }
 </script>
 

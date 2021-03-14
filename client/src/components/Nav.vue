@@ -3,7 +3,7 @@
         <div class="navbar-brand">
           <a class="navbar-item" href="/">
             <i class="fas fa-dumbbell fa-3x"></i>
-            Exersise App
+            Exercise App
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{ 'is-active': isActive }" @click.prevent="isActive = !isActive" >

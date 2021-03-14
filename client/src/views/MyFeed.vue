@@ -30,6 +30,7 @@
 import Vue from "vue";
 import ContentCard from "../components/ContentCard";
 import ContentCreation from '../components/ContentCreation.vue';
+import Session from '../models/Session';
 import { GetMyFeed } from "../models/Posts";
 //import { addPost } from "../models/Posts";
 export default Vue.extend({
@@ -40,7 +41,12 @@ export default Vue.extend({
         posts: []
     }),
     mounted() {
-        this.posts = GetMyFeed(0);
+        var posts = []
+        var i;
+for (i = 0; i < Session.user.friends.length; i++) {
+  posts = posts.concat(GetMyFeed(i))
+}
+this.posts = posts;
     },
     components: {
         ContentCard,

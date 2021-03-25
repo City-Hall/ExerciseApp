@@ -1,10 +1,15 @@
 const path = require('path');
 const express = require('express');
+const usersCtrl = require('./controllers/users');
+const postsCtrl = require('./controllers/posts');
 const app = express();
 const port = process.env.PORT || 3000;
 
 app
+    .use(express.json())
     .use(express.static('./docs'))
+    .use('/posts', postsCtrl)
+    .use('/users', usersCtrl)
     .get('/', (req, res) => {
         res.send('Hello World!')
     })

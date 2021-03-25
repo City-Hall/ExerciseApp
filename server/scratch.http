@@ -1,0 +1,24 @@
+http://localhost:3000/users
+
+
+###
+POST http://localhost:3000/users
+Content-Type:application/json
+{
+    "firstName": "Joe",
+    "lastName": "Biden",
+    "handle": "@potus",
+    "password": "DrJill"
+
+}
+
+###
+POST http://localhost:3000/posts
+Content-Type:application/json
+{
+    "firstName": "Joe",
+    "lastName": "Biden",
+    "handle": "@potus",
+    "password": "DrJill"
+
+}

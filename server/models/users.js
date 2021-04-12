@@ -1,4 +1,8 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const SALT_ROUNDS = process.env.SALT_ROUNDS;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const list = [
     { 
@@ -30,24 +34,24 @@ module.exports.Get = (user_id)=> list[user_id];
 module.exports.GetByHandle = (handle)=> ({ ...list.find( (x, i)=> x.handle == handle ), password: undefined }) ;
 module.exports.Add = (user)=> {
     if(!user.firstName){
-        throw { code: 422, msg: "First Name is reqired" }
+        throw { code: 422, msg: "First Name is required" }
     }
      list.push(user);
      return { ...user, password: undefined };
 }
-module.exports.Register = (user)=> {
-    const p = bcrypt
-    .hash(user.password, 8)
-    .then(hash=> {
-        user.password = hash;
-        if(!user.firstName){
-            throw { code: 422, msg: "First Name is reqired" }
-        }
+module.exports.Register = async (user)=> {
 
-         list.push(user);
-         return { ...user, password: undefined };
-    })
-    return p;
+    const hash = await bcrypt.hash(user.password, +SALT_ROUNDS);
+
+    user.password = hash;
+
+    if(!user.firstName){
+        throw { code: 422, msg: "First Name is required" }
+    }
+
+    list.push(user);
+    return { ...user, password: undefined };
+
 }
 module.exports.Update = (user_id, user)=> {
     const oldObj = list[user_id];
@@ -72,14 +76,29 @@ module.exports.Delete = (user_id)=> {
     return user;
 }
 
-module.exports.Login = async = (handle, password) =>{
+module.exports.Login = async (handle, password) =>{
     console.log({ handle, password})
     const user = list.find(x=> x.handle == handle);
     if(!user) throw { code: 401, msg: "Sorry there is no user with that handle" };
 
     if( ! await bcrypt.compare(password, user.password) ){
-        throw { code: 401, msg: "Wrong Password"}
+        throw { code: 401, msg: "Wrong Password" };
     }
 
-    return user;
+    const data = { ...user, password: undefined };
+
+    const token = jwt.sign(data, JWT_SECRET)
+
+    return { user, token };
+}
+
+module.exports.FromJWT = (token) =>{
+    try {
+        const user = jwt.verify(token, JWT_SECRET);
+        return user;       
+    } catch (error) {
+        console.log({error});
+        return null;
+    }
+
 }

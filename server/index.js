@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 
 app
     .use(express.json())
-    .use(express.static('./docs'))
+    .use(express.static('../docs'))
     .use(cors())
 
     .use(async (req, res, next)=>{ 

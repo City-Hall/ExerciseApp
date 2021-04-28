@@ -19,6 +19,5 @@ export function Logout(){
 
 import { GetUserCred } from "../models/Users";
 export function LogInCred(name, pass){
-
     GetUserCred(name, pass)
 }

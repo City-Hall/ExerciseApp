@@ -1,4 +1,5 @@
 <template>
+
           <div class="columns">
             
             <div class="column is-two-thirds">
@@ -60,6 +61,7 @@
             </div>
         </div>
     </div>
+    
 </template>
 
 <script>
